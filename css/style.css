@@ -209,13 +209,28 @@ nav a:hover::after {
 }
 
 @media (max-width: 900px) {
+  .hero {
+    height: 100vh; /* keep full viewport height */
+    padding: 1rem 0; /* optional top/bottom padding */
+    flex-direction: column;
+    justify-content: center; /* center content vertically */
+    align-items: center;     /* center horizontally */
+  }
+
   .hero-bg-text {
-    font-size: clamp(60px, 10vw, 120px);
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%); /* horizontally center */
+    font-size: clamp(50px, 8vw, 100px);
+    white-space: nowrap;
+    z-index: 1; /* behind image */
   }
 
   .hero-image {
-    max-width: 70%;
-    max-height: 50%;
+    max-width: 80%;
+    max-height: 60%;
+    margin-top: 0; /* reduce extra top space */
+    z-index: 2;    /* above bg text */
   }
 }
 
