@@ -1,11 +1,11 @@
-// Hero animation (only if hero exists)
+// Hero text animation
 const heroTextContainer = document.getElementById("hero-text");
 const heroImage = document.querySelector(".hero-image img");
 
 if (heroTextContainer && heroImage) {
-  // Split text into letters
   const text = heroTextContainer.textContent;
   heroTextContainer.textContent = "";
+
   const letters = [];
   for (let char of text) {
     const span = document.createElement("span");
@@ -60,24 +60,15 @@ if (heroTextContainer && heroImage) {
   animate();
 }
 
-// Hamburger menu (runs on all pages)
+// Hamburger menu
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.querySelector("nav ul");
 const body = document.body;
 
 if (hamburger && navLinks) {
   hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");   // animate hamburger to X
-    navLinks.classList.toggle("active");    // show/hide overlay
-    body.classList.toggle("menu-open");     // prevent scrolling
-  });
-
-  // Close menu when link clicked
-  document.querySelectorAll("nav ul li a").forEach(link => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navLinks.classList.remove("active");
-      body.classList.remove("menu-open");
-    });
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    body.classList.toggle("menu-open");
   });
 }

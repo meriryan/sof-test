@@ -2,13 +2,11 @@
    Global Variables & Reset
 =================================== */
 :root {
-  /* Colors */
   --color-bg: #f7f4e9;
   --color-text: #1a1a1a;           
   --color-accent-light: #acb090;
   --color-accent-dark: #6f6c43;
 
-  /* Fonts */
   --font-main: "bookmania", serif;   
   --font-accent: "orpheuspro", serif;   
 }
@@ -84,15 +82,13 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* ================================
-   Hamburger Menu
-=================================== */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 10001; /* higher than overlay */
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -115,9 +111,7 @@ nav a:hover::after {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ================================
-   Mobile Overlay Menu
-=================================== */
+/* Mobile overlay menu */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -129,9 +123,7 @@ nav a:hover::after {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(247, 244, 233, 0.95); /* frosted glass effect */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--color-bg);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -139,18 +131,11 @@ nav a:hover::after {
     padding: 0;
     margin: 0;
     display: none;
-    z-index: 10000;       /* above hero and content */
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* disable clicks when hidden */
+    z-index: 10000; /* increased to be above everything */
   }
 
   nav ul.active {
     display: flex;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;  /* enable clicks when visible */
   }
 
   nav a {
@@ -159,7 +144,7 @@ nav a:hover::after {
   }
 
   body.menu-open {
-    overflow: hidden;     /* prevent background scroll */
+    overflow: hidden;
   }
 }
 
@@ -235,16 +220,6 @@ nav a:hover::after {
 }
 
 /* ================================
-   Main Content
-=================================== */
-main {
-  padding: 2rem;
-  font-family: var(--font-main);
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-/* ================================
    About Section
 =================================== */
 .about {
@@ -256,7 +231,7 @@ main {
 
 .about-image {
   flex: 1;
-  background: url("/images/bridge.jpg") center/cover no-repeat;
+  background: url("../images/bridge.jpg") center/cover no-repeat;
   min-height: 400px;
 }
 
