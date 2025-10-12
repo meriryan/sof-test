@@ -188,12 +188,13 @@ nav a:hover::after {
 .hero-image {
   position: relative;
   z-index: 2;
-  max-width: 50%;
+  max-width: 80%;
   max-height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   isolation: isolate;
+  border-radius: 12px;
 }
 
 .hero-image img {
@@ -210,44 +211,32 @@ nav a:hover::after {
 
 @media (max-width: 900px) {
   .hero {
-    height: 100vh; /* keep full viewport height */
-    padding: 1rem 0; /* optional top/bottom padding */
+    height: auto;          /* let content dictate height */
+    min-height: 100vh;     /* still cover full viewport minimum */
+    padding: 5rem 1.5rem;  /* add padding to match about section spacing */
     flex-direction: column;
-    justify-content: center; /* center content vertically */
-    align-items: center;     /* center horizontally */
-  }
-
-  .hero-bg-text {
-    top: 0; 
-    left: 50%;
-    transform: translateX(-50%); /* horizontally center */
-    font-size: clamp(50px, 8vw, 100px);
-    white-space: nowrap;
-    z-index: 1; /* behind image */
-  }
-
-  .hero-image {
-    max-width: 80%;
-    max-height: 60%;
-    margin-top: 0; /* reduce extra top space */
-    z-index: 2;    /* above bg text */
+    justify-content: center;
+    align-items: center;
   }
 }
-
 /* ================================
-   About Section
+   Home Page About Section
 =================================== */
 .about {
   display: flex;
   flex-wrap: wrap;
-  min-height: 80vh;
+  min-height: 80vh; /* ensures at least most of viewport height */
   width: 100%;
+  padding: 5rem 0; /* adds space at top and bottom */
+  background: var(--color-bg); /* ensures bg covers padding */
+  box-sizing: border-box; /* includes padding in height calculation */
 }
 
 .about-image {
   flex: 1;
   background: url("../images/bridge.jpg") center/cover no-repeat;
   min-height: 400px;
+  border-radius: 0 12px 12px 0; /* top-right and bottom-right rounded */
 }
 
 .about-text {
@@ -255,6 +244,7 @@ nav a:hover::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start; /* left-align on desktop */
   padding: 3rem;
   background: var(--color-bg);
   color: var(--color-text);
@@ -275,13 +265,14 @@ nav a:hover::after {
 }
 
 .about-btn {
-  display: inline-block;
+  display: inline-block; /* prevents stretching */
   padding: 0.75rem 1.5rem;
   background: var(--color-accent-light);
   color: var(--color-text);
   text-decoration: none;
   font-family: var(--font-main);
   font-size: 1rem;
+  border-radius: 12px; /* same as hero image */
   transition: background 0.3s ease;
 }
 
@@ -290,6 +281,9 @@ nav a:hover::after {
   color: #fff;
 }
 
+/* ================================
+   Mobile Responsive
+=================================== */
 @media (max-width: 900px) {
   .about {
     flex-direction: column;
@@ -299,10 +293,18 @@ nav a:hover::after {
   .about-text {
     flex: none;
     width: 100%;
+    border-radius: 12px; /* round top corners */
   }
 
   .about-text {
+    align-items: center; /* center content horizontally */
+    text-align: center;  /* center text */
     padding: 2rem 1.5rem;
+  }
+
+  .about-btn {
+    /* optional: keep button from stretching and add margin-top */
+    margin-top: 1rem;
   }
 }
 
