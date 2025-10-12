@@ -219,32 +219,46 @@ nav a:hover::after {
     align-items: center;
   }
 }
+
 /* ================================
    Home Page About Section
 =================================== */
 .about {
   display: flex;
   flex-wrap: wrap;
-  min-height: 80vh; /* ensures at least most of viewport height */
+  min-height: 80vh;
   width: 100%;
-  padding: 5rem 0; /* adds space at top and bottom */
-  background: var(--color-bg); /* ensures bg covers padding */
-  box-sizing: border-box; /* includes padding in height calculation */
+  padding: 5rem 0;
+  background: var(--color-bg);
+  box-sizing: border-box;
+  border-radius: 12px;
+
 }
 
 .about-image {
-  flex: 1;
-  background: url("../images/bridge.jpg") center/cover no-repeat;
-  min-height: 400px;
-  border-radius: 0 12px 12px 0; /* top-right and bottom-right rounded */
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0; /* remove container radius */
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px; /* all corners rounded */
 }
 
 .about-text {
-  flex: 1;
+  flex: 1 1 50%;           /* other 50% */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* left-align on desktop */
+  align-items: flex-start; /* left-align text */
   padding: 3rem;
   background: var(--color-bg);
   color: var(--color-text);
@@ -265,14 +279,14 @@ nav a:hover::after {
 }
 
 .about-btn {
-  display: inline-block; /* prevents stretching */
+  display: inline-block;
   padding: 0.75rem 1.5rem;
   background: var(--color-accent-light);
   color: var(--color-text);
   text-decoration: none;
   font-family: var(--font-main);
   font-size: 1rem;
-  border-radius: 12px; /* same as hero image */
+  border-radius: 12px;
   transition: background 0.3s ease;
 }
 
@@ -280,6 +294,33 @@ nav a:hover::after {
   background: var(--color-accent-dark);
   color: #fff;
 }
+
+/* ================================
+   Mobile Responsive
+=================================== */
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .about-image,
+  .about-text {
+    flex: none;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .about-text {
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .about-btn {
+    margin-top: 1rem;
+  }
+}
+
 
 /* ================================
    Mobile Responsive
@@ -309,33 +350,5 @@ nav a:hover::after {
 }
 
 /* ================================
-   Image Scroll Reveal
+   Home Page Small Gallery
 =================================== */
-.gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
-  padding: 6rem 0;
-}
-
-.img-container {
-  width: 80%;
-  max-width: 900px;
-  overflow: hidden;
-}
-
-.img-container img {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  opacity: 0;
-  transform: translateY(60px) scale(1.05);
-  transition: opacity 1s ease, transform 1s ease;
-  will-change: opacity, transform;
-}
-
-.img-container.show img {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
