@@ -220,17 +220,42 @@ nav a:hover::after {
 
 
 @media (max-width: 900px) {
-  .hero-image {
-    max-width: 90%;
-    max-height: none;
+  /* === HOMEPAGE MOBILE TWEAKS === */
+
+  /* Reduce vertical space in hero section */
+  .hero {
+    padding-top: 1rem;     /* tighten top */
+    padding-bottom: 1rem;  /* tighten bottom */
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  .hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
+  /* Make the hero image smaller and centered */
+  .hero-image {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  /* Adjust scrolling text spacing */
+  .hero-bg-text {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Make Sofia portrait smaller */
+  .about-image img {
+    width: 70%;
+    max-width: 260px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Center about text a bit more */
+  .about-text {
+    padding-top: 1rem;
   }
 }
+
 
 /* ================================
    Home Page About Section
@@ -362,89 +387,168 @@ nav a:hover::after {
 }
 
 /* ================================
-   Home Page Small Gallery
-=================================== */
-.home-gallery {
-  padding: 2rem 0;
-  overflow: hidden;
-  background: var(--color-accent-dark);
+   Footer Section
+================================ */
+.contact-footer {
+  background: var(--color-text); /* dark background */
+  color: var(--color-bg);        /* light text */
+  padding: 5rem 8%;
+  border-radius: 12px 12px 0 0;
 }
 
-.home-gallery-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  font-family: var(--font-accent);
-  color: #fff;
-}
-
-.gallery__container {
-  position: relative;
-  width: 100%;
-  height: 400px; /* total height of 2 rows */
-  overflow: hidden;
-}
-
-/* Rows */
-.gallery__row {
+.contact-container {
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Left side */
+.contact-left {
+  flex: 1 1 40%;
+  min-width: 300px;
+}
+
+.contact-left h2 {
+  font-family: var(--font-accent);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--color-bg);
+}
+
+.contact-left p {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  color: var(--color-bg);
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: var(--color-bg);
+  background: var(--color-accent-light);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-3px);
+}
+
+/* Right side */
+.contact-right {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
   gap: 2rem;
-  width: max-content; /* row width grows with images */
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
-.bottom-row {
-  top: 220px; /* second row position */
+.contact-card {
+  background: var(--color-accent-dark);
+  color: var(--color-bg);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 8px 8px 0 var(--color-accent-light);
+  text-align: center;
+  flex: 1 1 220px;
+  transition: all 0.3s ease;
 }
 
-/* Images */
-.photo {
-  flex-shrink: 0;
-  width: calc((100% / 3) - 1.33rem); /* 3 images visible at once minus gap */
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 12px 0 var(--color-accent-light);
 }
 
-.photo img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s;
+.contact-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-bg);
+  display: block;
 }
 
-.photo img:hover {
-  transform: scale(1.05);
+.contact-card a {
+  color: var(--color-bg);
+  font-family: var(--font-main);
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
-/* Horizontal scroll animation */
-.top-row {
-  animation: scroll-left 20s linear infinite;
+.contact-card a:hover {
+  text-decoration: underline;
 }
 
-.bottom-row {
-  animation: scroll-left 25s linear infinite reverse;
-}
-
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* adjust depending on duplicated images */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .photo {
-    width: calc((100% / 2) - 1rem); /* 2 images visible on small screens */
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 900px) {
+  .contact-footer {
+    padding: 3rem 1.5rem;
   }
-  .bottom-row {
-    top: 140px;
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  .photo img {
-    height: 120px;
+
+  .contact-right {
+    justify-content: center;
+  }
+
+  .contact-card {
+    width: 90%;
+    box-shadow: 6px 6px 0 var(--color-accent-light);
   }
 }
 
 /* ================================
+   Responsive
+================================ */
+@media (max-width: 900px) {
+  .contact-footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-right {
+    justify-content: center;
+  }
+
+  .contact-card {
+    width: 90%;
+    box-shadow: 6px 6px 0 var(--color-accent-light);
+  }
+}
+
 /* ================================
    PROJECT LAYOUT
 =================================== */
