@@ -1108,7 +1108,7 @@ nav a:hover::after {
 .work-title {
   font-family: var(--font-accent);
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 550;
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
 }
@@ -1149,5 +1149,98 @@ nav a:hover::after {
     top: 1rem;
     right: 1rem;
     font-size: 2.5rem;
+  }
+}
+
+/* ================================
+   Contact Page (Dark Layout)
+================================ */
+.contact-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 4rem 2rem;
+}
+
+/* Large dark layered card */
+.contact-main .contact-popup.dark {
+  background: #1a1a1a;
+  color: var(--color-bg);
+  width: 80%;
+  max-width: 1000px;
+  padding: 5rem;
+  border-radius: 24px;
+  box-shadow: 16px 16px 0 var(--color-accent-light);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-main .contact-popup.dark:hover {
+  transform: translateY(-6px);
+  box-shadow: 20px 20px 0 var(--color-accent-dark);
+}
+
+.contact-main .contact-popup.dark h1 {
+  font-family: var(--font-accent);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--color-accent-light);
+  margin-bottom: 1.5rem;
+}
+
+.contact-main .contact-popup.dark .contact-intro {
+  font-family: var(--font-main);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+/* Contact page social icons — scoped so footer isn’t affected */
+.contact-main .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-main .social-icons a {
+  color: #1a1a1a;
+  background: var(--color-bg);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 1.8rem;
+}
+
+.contact-main .social-icons a:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-3px);
+}
+
+/* Responsive for Contact Page */
+@media (max-width: 900px) {
+  .contact-main .contact-popup.dark {
+    width: 95%;
+    padding: 3rem 2rem;
+    box-shadow: 10px 10px 0 var(--color-accent-light);
+  }
+
+  .contact-main .contact-popup.dark h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact-main .contact-popup.dark .contact-intro {
+    font-size: 1.1rem;
+  }
+
+  .contact-main .social-icons a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 }
