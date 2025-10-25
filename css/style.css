@@ -97,7 +97,8 @@ nav a:hover::after {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 1001;
+  position: relative;
+  z-index: 10001; /* higher than overlay menu */
 }
 
 .hamburger span {
@@ -107,7 +108,7 @@ nav a:hover::after {
   transition: all 0.3s ease;
 }
 
-/* Hamburger to X animation */
+/* Hamburger → X animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -140,7 +141,8 @@ nav a:hover::after {
     padding: 0;
     margin: 0;
     display: none;
-    z-index: 10000; /* increased to be above everything */
+    z-index: 10000; /* overlay below hamburger */
+    transition: opacity 0.3s ease;
   }
 
   nav ul.active {
@@ -156,6 +158,7 @@ nav a:hover::after {
     overflow: hidden;
   }
 }
+
 
 /* ================================
    Hero Section
@@ -303,14 +306,14 @@ nav a:hover::after {
 
 .about-text h2 {
   font-family: var(--font-accent);
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: 2rem;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
 .about-text p {
-  font-family: var(--font-main);
-  font-size: 2rem;
+  font-family: var(--font-accent);
+  font-size: 1.6rem;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -747,37 +750,59 @@ nav a:hover::after {
 
 /* Mobile Responsive - About Page */
 @media (max-width: 900px) {
+  /* About Section */
   .about-intro {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: var(--color-bg);
     min-height: auto;
+    text-align: center;
   }
 
   .about-card {
     padding: 3rem 2rem 2rem;
     background: var(--color-accent-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .about-card img {
-    max-width: 280px;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
   }
 
   .about-intro-text {
     padding: 3rem 2rem;
+    text-align: center;
   }
 
   .about-intro-text h1 {
     font-size: 2.5rem;
+    text-align: center;
   }
 
   .about-details {
-    padding: 4rem 5%;
+    padding: 3rem 5%;
+    text-align: center;
   }
 
+  /* Contact Section */
   .contact-container {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
     text-align: center;
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact-right {
@@ -786,8 +811,11 @@ nav a:hover::after {
 
   .social-icons {
     justify-content: center;
+    display: flex;
+    gap: 1rem;
   }
 }
+
 
 /* ================================
    PROJECT LAYOUT
@@ -1108,7 +1136,7 @@ nav a:hover::after {
 .work-title {
   font-family: var(--font-accent);
   font-size: 1.8rem;
-  font-weight: 550;
+  font-weight: 50;
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
 }
