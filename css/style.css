@@ -218,14 +218,17 @@ nav a:hover::after {
   100% { transform: translateX(-100%); }
 }
 
+
 @media (max-width: 900px) {
-  .hero {
-    height: auto;          /* let content dictate height */
-    min-height: 100vh;     /* still cover full viewport minimum */
-    padding: 5rem 1.5rem;  /* add padding to match about section spacing */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .hero-image {
+    max-width: 90%;
+    max-height: none;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
   }
 }
 
