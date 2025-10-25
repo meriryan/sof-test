@@ -310,7 +310,7 @@ nav a:hover::after {
 
 .about-text p {
   font-family: var(--font-main);
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -390,8 +390,8 @@ nav a:hover::after {
    Footer Section
 ================================ */
 .contact-footer {
-  background: var(--color-text); /* dark background */
-  color: var(--color-bg);        /* light text */
+  background: #1a1a1a; /* <-- solid black background */
+  color: var(--color-bg); /* light text */
   padding: 5rem 8%;
   border-radius: 12px 12px 0 0;
 }
@@ -546,6 +546,246 @@ nav a:hover::after {
   .contact-card {
     width: 90%;
     box-shadow: 6px 6px 0 var(--color-accent-light);
+  }
+}
+
+/* ================================
+   ABOUT PAGE - Split Screen Layout
+=================================== */
+.about-main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.about-intro {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(to right, var(--color-accent-light) 0%, var(--color-accent-light) 50%, var(--color-bg) 50%, var(--color-bg) 100%);
+}
+
+/* Left side - Photo card */
+.about-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 3rem;
+  background: transparent;
+}
+
+.about-card img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-card-text {
+  text-align: center;
+  border-top: 1px solid var(--color-text);
+  padding-top: 1.5rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.about-card-text h3 {
+  font-family: var(--font-accent);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.about-card-text p {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* Right side - Intro text */
+.about-intro-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 4rem 4rem 5rem;
+  background: transparent;
+}
+
+.about-intro-text h1 {
+  font-family: var(--font-accent);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.intro-tagline {
+  font-family: var(--font-main);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.8;
+  color: var(--color-text);
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* About details section */
+.about-details {
+  padding: 6rem 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--color-bg);
+}
+
+.about-details h2 {
+  font-family: var(--font-accent);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.about-details p {
+  font-family: var(--font-main);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.8;
+  color: var(--color-text);
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Footer */
+.contact-footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 4rem 10%;
+}
+
+.contact-container {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-left {
+  flex: 1;
+}
+
+.contact-left h2 {
+  font-family: var(--font-accent);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.contact-left p {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+.contact-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.contact-card i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.contact-card a {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-card a:hover {
+  opacity: 0.8;
+}
+
+/* Mobile Responsive - About Page */
+@media (max-width: 900px) {
+  .about-intro {
+    flex-direction: column;
+    background: var(--color-bg);
+    min-height: auto;
+  }
+
+  .about-card {
+    padding: 3rem 2rem 2rem;
+    background: var(--color-accent-light);
+  }
+
+  .about-card img {
+    max-width: 280px;
+  }
+
+  .about-intro-text {
+    padding: 3rem 2rem;
+  }
+
+  .about-intro-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-details {
+    padding: 4rem 5%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .contact-right {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 }
 

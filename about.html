@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About - Sofia Pate</title>
+    <link rel="stylesheet" href="https://use.typekit.net/YOURTYPEKITID.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav>
-        <h1>Sofia Pate</h1>
-        <ul>
+        <h1><a href="index.html">Sofia Pate</a></h1>
+        <ul id="navMenu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="works.html">Works</a></li>
@@ -22,11 +25,64 @@
         </div>
     </nav>
 
-    <div>
-        <img width="75%" src="/images/IMG_5085.jpg" alt="Sofia Pate portrait">
-    </div>
+    <main class="about-main">
+        <section class="about-intro">
+            <div class="about-card">
+                <img src="images/sofia.jpg" alt="Sofia Pate">
+                <div class="about-card-text">
+                    <h3>Sofia Pate</h3>
+                    <p>Photographer & Creative Director</p>
+                </div>
+            </div>
+
+            <div class="about-intro-text">
+                <h1>Hi, I'm Sofia!</h1>
+                <p class="intro-tagline">
+                    I create images that live in the space between reality and imagination; blending raw emotion with an editorial eye to tell stories that feel human, cinematic, and alive.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-details">
+            <h2>Who Am I?</h2>
+            <p>
+                I'm Sofia Pate, a photographer and creative based in Michigan. I'm currently studying Creative Advertising at Michigan State University with a minor in Media Photography, where I explore how storytelling, strategy, and visual design intersect to create meaningful impact.
+            </p>
+            <p>
+                As the Photo Director for VIM Magazine, MSU's student-run fashion and lifestyle publication, I lead the creative vision for all editorial photography. I oversee photoshoots from concept to final image and collaborate with stylists, writers, and creative teams to build cohesive visual narratives that define VIM's artistic identity.
+            </p>
+            <p>
+                Beyond VIM, I've been a freelance photographer since 2019, capturing everything from intimate weddings and portraits to conceptual and documentary-style projects. My approach is rooted in storytelling - I aim to photograph people as they are, in moments that feel unfiltered yet intentional.
+            </p>
+        </section>
+    </main>
+
+    <footer class="contact-footer">
+        <div class="contact-container">
+            <div class="contact-left">
+                <h2>Get in Touch</h2>
+                <p>
+                    Let's collaborate or just have a chat. Feel free to reach out via email or find me on social platforms below.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sofmichigan/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sofia-pate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:sofmichphoto@gmail.com">sofmichphoto@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/move.js"></script>
-
 </body>
 </html>
